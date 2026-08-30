@@ -189,7 +189,64 @@ If you want to test password reset functionality without sending real emails:
   During development, Django serves static files automatically. For production, you need to configure static files properly.
 
 ---
+Set up Docker
 
+1. Create a file called “Dockerfile” in the root directory of your project. This file 
+should not have an extension). This file defines the environment your app will run 
+in. It tells Docker which base image to use, sets environment variables, installs 
+dependencies, and copies your project files into the image. 
+
+Dockerfile configuration: 
+# Use official Python image 
+FROM python:3.11-slim 
+# Set environment variables 
+ENV PYTHONDONTWRITEBYTECODE 1 
+ENV PYTHONUNBUFFERED 1 
+# Set work directory 
+WORKDIR /code 
+# Install dependencies 
+COPY requirements.txt /code/ 
+RUN pip install --upgrade pip && pip install -r requirements.txt 
+# Copy project 
+COPY . /code/ 
+ 
+2. Create a requirements.txt. This file lists all the Python packages your project 
+depends on. Docker will use this to install the necessary packages inside the 
+container. 
+ 
+3. Create a file called docker-compose.yml in the root directory of your project. 
+This file defines how to run your Docker containers. It specifies the services, build 
+instructions, commands to start your app, and how ports and volumes should be 
+mapped. 
+
+docker-compose.yml configuration:
+services: 
+  web: 
+    build: . 
+    command: python manage.py runserver 0.0.0.0:8000 
+    volumes: 
+      - .:/code 
+    ports: 
+      - "8000:8000" 
+ 
+4. Run the Django App with Docker Desktop 
+5.1. Run this command to build your Docker image based on the Dockerfile and 
+dependencies: 
+ 
+docker-compose build 
+ 
+5. Run your container and launch the Django development server: 
+ 
+docker-compose up 
+ 
+ 
+6. Verify Containerization Success 
+In Docker Desktop - After completing the previous steps, open the Docker 
+Desktop application and check the following: 
+1.  Click on “Containers” in the left sidebar. 
+2.  You should see your container listed. 
+3.  The container should show a green “Running” status, indicating it’s active. 
+ 
 ## Project Structure
 
 ```
@@ -209,8 +266,11 @@ eCommerce/
 │   ├── views.py
 │   ├── templates/
 │   └── urls.py
+├── dockerfile
+├── docker-compose.yml
 ├── manage.py                # Django CLI utility
 └── requirements.txt         # Python dependencies
+
 ```
 
 ---
