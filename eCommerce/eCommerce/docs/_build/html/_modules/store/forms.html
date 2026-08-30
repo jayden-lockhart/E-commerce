@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>store.forms &mdash; store 00.00.01 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=d7bb8d4d"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            store
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">store</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">store</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">store.forms</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for store.forms</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">django.contrib.auth.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">User</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">django.contrib.auth.forms</span><span class="w"> </span><span class="kn">import</span> <span class="n">UserCreationForm</span><span class="p">,</span> <span class="n">UserChangeForm</span><span class="p">,</span> <span class="n">SetPasswordForm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">django</span><span class="w"> </span><span class="kn">import</span> <span class="n">forms</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Profile</span><span class="p">,</span> <span class="n">Product</span><span class="p">,</span> <span class="n">Store</span><span class="p">,</span> <span class="n">ShippingAddress</span><span class="p">,</span> <span class="n">ProductReviews</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">django.core.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ValidationError</span>
+
+<div class="viewcode-block" id="ChangePassword">
+<a class="viewcode-back" href="../../store.html#store.forms.ChangePassword">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ChangePassword</span><span class="p">(</span><span class="n">SetPasswordForm</span><span class="p">):</span>
+<span class="w">	</span><span class="sd">'''form for changing password'''</span>
+<div class="viewcode-block" id="ChangePassword.Meta">
+<a class="viewcode-back" href="../../store.html#store.forms.ChangePassword.Meta">[docs]</a>
+	<span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">():</span>
+		<span class="n">model</span> <span class="o">=</span> <span class="n">User</span>
+		<span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'new_password1'</span><span class="p">,</span> <span class="s1">'new_password2'</span><span class="p">]</span></div>
+
+
+	<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="nb">super</span><span class="p">(</span><span class="n">ChangePassword</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+		
+		<span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'new_password1'</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">'class'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'form-control'</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'new_password1'</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">'placeholder'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Password'</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'new_password1'</span><span class="p">]</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="s1">''</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'new_password1'</span><span class="p">]</span><span class="o">.</span><span class="n">help_text</span> <span class="o">=</span> <span class="s1">'&lt;ul class="form-text text-muted small"&gt;&lt;li&gt;Your password can</span><span class="se">\'</span><span class="s1">t be too similar to your other personal information.&lt;/li&gt;&lt;li&gt;Your password must contain at least 8 characters.&lt;/li&gt;&lt;li&gt;Your password can</span><span class="se">\'</span><span class="s1">t be a commonly used password.&lt;/li&gt;&lt;li&gt;Your password can</span><span class="se">\'</span><span class="s1">t be entirely numeric.&lt;/li&gt;&lt;/ul&gt;'</span>
+
+		<span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'new_password2'</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">'class'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'form-control'</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'new_password2'</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">'placeholder'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Confirm Password'</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'new_password2'</span><span class="p">]</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="s1">''</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'new_password2'</span><span class="p">]</span><span class="o">.</span><span class="n">help_text</span> <span class="o">=</span> <span class="s1">'&lt;span class="form-text text-muted"&gt;&lt;small&gt;Enter the same password as before, for verification.&lt;/small&gt;&lt;/span&gt;'</span></div>
+
+
+
+<div class="viewcode-block" id="UpdateUserForm">
+<a class="viewcode-back" href="../../store.html#store.forms.UpdateUserForm">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">UpdateUserForm</span><span class="p">(</span><span class="n">UserChangeForm</span><span class="p">):</span>
+<span class="w">	</span><span class="sd">'''form for updating user info'''</span>
+	<span class="n">email</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">EmailField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span><span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span><span class="s1">'Email Address'</span><span class="p">}),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+	<span class="n">first_name</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span><span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span><span class="s1">'First Name'</span><span class="p">}),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+	<span class="n">last_name</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span><span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span><span class="s1">'Last Name'</span><span class="p">}),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+	<span class="n">password</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="UpdateUserForm.Meta">
+<a class="viewcode-back" href="../../store.html#store.forms.UpdateUserForm.Meta">[docs]</a>
+	<span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+		<span class="n">model</span> <span class="o">=</span> <span class="n">User</span>
+		<span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'username'</span><span class="p">,</span> <span class="s1">'first_name'</span><span class="p">,</span> <span class="s1">'last_name'</span><span class="p">,</span> <span class="s1">'email'</span><span class="p">)</span></div>
+
+
+	<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="nb">super</span><span class="p">(</span><span class="n">UpdateUserForm</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+		<span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'username'</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">'class'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'form-control'</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'username'</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">'placeholder'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'User Name'</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'username'</span><span class="p">]</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="s1">''</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'username'</span><span class="p">]</span><span class="o">.</span><span class="n">help_text</span> <span class="o">=</span> <span class="s1">'&lt;span class="form-text text-muted"&gt;&lt;small&gt;Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.&lt;/small&gt;&lt;/span&gt;'</span>
+
+<div class="viewcode-block" id="UpdateUserForm.clean_email">
+<a class="viewcode-back" href="../../store.html#store.forms.UpdateUserForm.clean_email">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">clean_email</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="n">email</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">'email'</span><span class="p">]</span>
+		<span class="k">if</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+			<span class="k">raise</span> <span class="n">ValidationError</span><span class="p">(</span><span class="s2">"This email is already registered."</span><span class="p">)</span></div>
+</div>
+
+			
+	
+
+<div class="viewcode-block" id="SignUpForm">
+<a class="viewcode-back" href="../../store.html#store.forms.SignUpForm">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">SignUpForm</span><span class="p">(</span><span class="n">UserCreationForm</span><span class="p">):</span>
+<span class="w">	</span><span class="sd">'''form for user registration'''</span>
+	<span class="n">role</span> <span class="o">=</span> <span class="p">[</span>
+		<span class="p">(</span><span class="s1">'vendor'</span><span class="p">,</span> <span class="s1">'vendor'</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'buyer'</span><span class="p">,</span> <span class="s1">'buyer'</span><span class="p">)</span>
+	<span class="p">]</span>
+	
+	<span class="n">email</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">EmailField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span><span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span><span class="s1">'Email Address'</span><span class="p">}))</span>
+	<span class="n">first_name</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span><span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span><span class="s1">'First Name'</span><span class="p">}))</span>
+	<span class="n">last_name</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span><span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span><span class="s1">'Last Name'</span><span class="p">}))</span>
+	<span class="n">role</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ChoiceField</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">role</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Select your role'</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="s1">'buyer'</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">Select</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span> <span class="s1">'form-control'</span><span class="p">}))</span>
+
+<div class="viewcode-block" id="SignUpForm.Meta">
+<a class="viewcode-back" href="../../store.html#store.forms.SignUpForm.Meta">[docs]</a>
+	<span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+		<span class="n">model</span> <span class="o">=</span> <span class="n">User</span>
+		<span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'username'</span><span class="p">,</span> <span class="s1">'first_name'</span><span class="p">,</span> <span class="s1">'last_name'</span><span class="p">,</span> <span class="s1">'email'</span><span class="p">,</span> <span class="s1">'password1'</span><span class="p">,</span> <span class="s1">'password2'</span><span class="p">,</span> <span class="s1">'role'</span><span class="p">)</span></div>
+
+	
+
+	<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="nb">super</span><span class="p">(</span><span class="n">SignUpForm</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+		<span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'username'</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">'class'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'form-control'</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'username'</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">'placeholder'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'User Name'</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'username'</span><span class="p">]</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="s1">''</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'username'</span><span class="p">]</span><span class="o">.</span><span class="n">help_text</span> <span class="o">=</span> <span class="s1">'&lt;span class="form-text text-muted"&gt;&lt;small&gt;Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.&lt;/small&gt;&lt;/span&gt;'</span>
+
+		<span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'password1'</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">'class'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'form-control'</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'password1'</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">'placeholder'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Password'</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'password1'</span><span class="p">]</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="s1">''</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'password1'</span><span class="p">]</span><span class="o">.</span><span class="n">help_text</span> <span class="o">=</span> <span class="s1">'&lt;ul class="form-text text-muted small"&gt;&lt;li&gt;Your password can</span><span class="se">\'</span><span class="s1">t be too similar to your other personal information.&lt;/li&gt;&lt;li&gt;Your password must contain at least 8 characters.&lt;/li&gt;&lt;li&gt;Your password can</span><span class="se">\'</span><span class="s1">t be a commonly used password.&lt;/li&gt;&lt;li&gt;Your password can</span><span class="se">\'</span><span class="s1">t be entirely numeric.&lt;/li&gt;&lt;/ul&gt;'</span>
+
+		<span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'password2'</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">'class'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'form-control'</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'password2'</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">'placeholder'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Confirm Password'</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'password2'</span><span class="p">]</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="s1">''</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'password2'</span><span class="p">]</span><span class="o">.</span><span class="n">help_text</span> <span class="o">=</span> <span class="s1">'&lt;span class="form-text text-muted"&gt;&lt;small&gt;Enter the same password as before, for verification.&lt;/small&gt;&lt;/span&gt;'</span>
+
+<div class="viewcode-block" id="SignUpForm.check_email">
+<a class="viewcode-back" href="../../store.html#store.forms.SignUpForm.check_email">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">check_email</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="n">email</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'email'</span><span class="p">)</span>
+		<span class="k">if</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+			<span class="k">raise</span> <span class="n">forms</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s2">"Email already exists"</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">email</span></div>
+</div>
+
+
+
+
+
+<div class="viewcode-block" id="UserInfoForm">
+<a class="viewcode-back" href="../../store.html#store.forms.UserInfoForm">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">UserInfoForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+<span class="w">	</span><span class="sd">'''form for user profile information'''</span>
+	<span class="n">USER_TYPES</span> <span class="o">=</span> <span class="p">[</span>
+		<span class="p">(</span><span class="s1">'vendor'</span><span class="p">,</span> <span class="s1">'vendor'</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'buyer'</span><span class="p">,</span> <span class="s1">'buyer'</span><span class="p">),</span>
+	<span class="p">]</span>
+
+	<span class="n">phone</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span> <span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'phone'</span><span class="p">}),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+	<span class="n">full_name</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span> <span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'full name'</span><span class="p">}),</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="n">email</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">EmailField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span> <span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'email'</span><span class="p">}),</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="n">address1</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span> <span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'address1'</span><span class="p">}),</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="n">address2</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span> <span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'address2'</span><span class="p">}),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+	<span class="n">city</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span> <span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'city'</span><span class="p">}),</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="n">country</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span> <span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'country'</span><span class="p">}),</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="n">post_code</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span> <span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'post code'</span><span class="p">}),</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<div class="viewcode-block" id="UserInfoForm.Meta">
+<a class="viewcode-back" href="../../store.html#store.forms.UserInfoForm.Meta">[docs]</a>
+	<span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+		<span class="n">model</span> <span class="o">=</span> <span class="n">Profile</span>
+		<span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'phone'</span><span class="p">,</span> <span class="s1">'full_name'</span><span class="p">,</span> <span class="s1">'email'</span><span class="p">,</span> <span class="s1">'address1'</span><span class="p">,</span> <span class="s1">'address2'</span><span class="p">,</span> <span class="s1">'city'</span><span class="p">,</span> <span class="s1">'country'</span><span class="p">,</span> <span class="s1">'post_code'</span><span class="p">]</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ProductForm">
+<a class="viewcode-back" href="../../store.html#store.forms.ProductForm">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ProductForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+<span class="w">	</span><span class="sd">'''form for adding or editing products'''</span>
+	<span class="n">name</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span> <span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'name'</span><span class="p">}),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+	<span class="n">price</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span> <span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'price'</span><span class="p">}),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+	<span class="n">stock</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span> <span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'stock'</span><span class="p">}),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+	<span class="n">image</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ImageField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">FileInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span> <span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'image'</span><span class="p">}),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+	<span class="n">store</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ModelChoiceField</span><span class="p">(</span><span class="n">queryset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">Select</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span> <span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'store'</span><span class="p">}),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="ProductForm.Meta">
+<a class="viewcode-back" href="../../store.html#store.forms.ProductForm.Meta">[docs]</a>
+	<span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+		<span class="n">model</span> <span class="o">=</span> <span class="n">Product</span>
+		<span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'name'</span><span class="p">,</span> <span class="s1">'price'</span><span class="p">,</span> <span class="s1">'stock'</span><span class="p">,</span> <span class="s1">'image'</span><span class="p">,</span> <span class="s1">'store'</span><span class="p">]</span></div>
+
+
+	<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="nb">super</span><span class="p">(</span><span class="n">ProductForm</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">'store'</span><span class="p">]</span><span class="o">.</span><span class="n">queryset</span> <span class="o">=</span> <span class="n">Store</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="StoreForm">
+<a class="viewcode-back" href="../../store.html#store.forms.StoreForm">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">StoreForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+<span class="w">	</span><span class="sd">'''form for adding stores'''</span>
+	<span class="n">name</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span> <span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'name'</span><span class="p">}),</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="n">description</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span> <span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'description'</span><span class="p">}),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+	<span class="n">image</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ImageField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">FileInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span> <span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'image'</span><span class="p">}),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<div class="viewcode-block" id="StoreForm.Meta">
+<a class="viewcode-back" href="../../store.html#store.forms.StoreForm.Meta">[docs]</a>
+	<span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+		<span class="n">model</span> <span class="o">=</span> <span class="n">Store</span>
+		<span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'name'</span><span class="p">,</span> <span class="s1">'description'</span><span class="p">,</span> <span class="s1">'image'</span><span class="p">]</span></div>
+</div>
+
+
+<div class="viewcode-block" id="ShippingForm">
+<a class="viewcode-back" href="../../store.html#store.forms.ShippingForm">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ShippingForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+	<span class="n">full_name</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span> <span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'full name'</span><span class="p">}),</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="n">email</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span> <span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'email'</span><span class="p">}),</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="n">address1</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span> <span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'address1'</span><span class="p">}),</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="n">address2</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span> <span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'address2'</span><span class="p">}),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+	<span class="n">city</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span> <span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'city'</span><span class="p">}),</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="n">country</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span> <span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'country'</span><span class="p">}),</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="n">post_code</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span> <span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'post code'</span><span class="p">}),</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ShippingForm.Meta">
+<a class="viewcode-back" href="../../store.html#store.forms.ShippingForm.Meta">[docs]</a>
+	<span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+		<span class="n">model</span> <span class="o">=</span> <span class="n">ShippingAddress</span>
+		<span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'full_name'</span><span class="p">,</span> <span class="s1">'email'</span><span class="p">,</span> <span class="s1">'address1'</span><span class="p">,</span> <span class="s1">'address2'</span><span class="p">,</span> <span class="s1">'city'</span><span class="p">,</span> <span class="s1">'country'</span><span class="p">,</span> <span class="s1">'post_code'</span><span class="p">]</span>
+
+		<span class="n">exclude</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'user'</span><span class="p">,]</span></div>
+</div>
+
+
+<div class="viewcode-block" id="ReviewForm">
+<a class="viewcode-back" href="../../store.html#store.forms.ReviewForm">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ReviewForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+	<span class="n">review</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">Textarea</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">'class'</span><span class="p">:</span> <span class="s1">'form-control'</span><span class="p">,</span> <span class="s1">'placeholder'</span><span class="p">:</span> <span class="s1">'review'</span><span class="p">}))</span>
+
+<div class="viewcode-block" id="ReviewForm.Meta">
+<a class="viewcode-back" href="../../store.html#store.forms.ReviewForm.Meta">[docs]</a>
+	<span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+		<span class="n">model</span> <span class="o">=</span> <span class="n">ProductReviews</span>
+		<span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'review'</span><span class="p">,</span> <span class="s1">'rating'</span><span class="p">]</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, jayden.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1885 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>store package &mdash; store 00.00.01 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d7bb8d4d"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="store.migrations package" href="store.migrations.html" />
+    <link rel="prev" title="store" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            store
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">store</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">store package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html">store.migrations package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-store.admin">store.admin module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#store.admin.OrderAdmin"><code class="docutils literal notranslate"><span class="pre">OrderAdmin</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.admin.OrderItemInline"><code class="docutils literal notranslate"><span class="pre">OrderItemInline</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.admin.ProfileInLine"><code class="docutils literal notranslate"><span class="pre">ProfileInLine</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.admin.UserAdmin"><code class="docutils literal notranslate"><span class="pre">UserAdmin</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-store.apps">store.apps module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#store.apps.StoreConfig"><code class="docutils literal notranslate"><span class="pre">StoreConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-store.decorators">store.decorators module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#store.decorators.allowed_users"><code class="docutils literal notranslate"><span class="pre">allowed_users()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.decorators.unauthenticated_user"><code class="docutils literal notranslate"><span class="pre">unauthenticated_user()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.decorators.vendor_only"><code class="docutils literal notranslate"><span class="pre">vendor_only()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-store.forms">store.forms module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#store.forms.ChangePassword"><code class="docutils literal notranslate"><span class="pre">ChangePassword</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.forms.ProductForm"><code class="docutils literal notranslate"><span class="pre">ProductForm</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.forms.ReviewForm"><code class="docutils literal notranslate"><span class="pre">ReviewForm</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.forms.ShippingForm"><code class="docutils literal notranslate"><span class="pre">ShippingForm</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.forms.SignUpForm"><code class="docutils literal notranslate"><span class="pre">SignUpForm</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.forms.StoreForm"><code class="docutils literal notranslate"><span class="pre">StoreForm</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.forms.UpdateUserForm"><code class="docutils literal notranslate"><span class="pre">UpdateUserForm</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.forms.UserInfoForm"><code class="docutils literal notranslate"><span class="pre">UserInfoForm</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-store.models">store.models module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#store.models.Customer"><code class="docutils literal notranslate"><span class="pre">Customer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.models.Order"><code class="docutils literal notranslate"><span class="pre">Order</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.models.OrderItem"><code class="docutils literal notranslate"><span class="pre">OrderItem</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.models.Product"><code class="docutils literal notranslate"><span class="pre">Product</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.models.ProductReviews"><code class="docutils literal notranslate"><span class="pre">ProductReviews</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.models.Profile"><code class="docutils literal notranslate"><span class="pre">Profile</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.models.ResetToken"><code class="docutils literal notranslate"><span class="pre">ResetToken</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.models.ShippingAddress"><code class="docutils literal notranslate"><span class="pre">ShippingAddress</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.models.Store"><code class="docutils literal notranslate"><span class="pre">Store</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-store.tests">store.tests module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-store.urls">store.urls module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-store.utils">store.utils module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#store.utils.build_email"><code class="docutils literal notranslate"><span class="pre">build_email()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.utils.generate_reset_url"><code class="docutils literal notranslate"><span class="pre">generate_reset_url()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-store.views">store.views module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#store.views.about"><code class="docutils literal notranslate"><span class="pre">about()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.views.add_review"><code class="docutils literal notranslate"><span class="pre">add_review()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.views.add_store"><code class="docutils literal notranslate"><span class="pre">add_store()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.views.become_buyer"><code class="docutils literal notranslate"><span class="pre">become_buyer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.views.home"><code class="docutils literal notranslate"><span class="pre">home()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.views.logout_user"><code class="docutils literal notranslate"><span class="pre">logout_user()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.views.product"><code class="docutils literal notranslate"><span class="pre">product()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.views.register_vendor"><code class="docutils literal notranslate"><span class="pre">register_vendor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.views.store"><code class="docutils literal notranslate"><span class="pre">store()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.views.store_summary"><code class="docutils literal notranslate"><span class="pre">store_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.views.update_info"><code class="docutils literal notranslate"><span class="pre">update_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.views.update_password"><code class="docutils literal notranslate"><span class="pre">update_password()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#store.views.update_user"><code class="docutils literal notranslate"><span class="pre">update_user()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-store">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">store</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">store</a></li>
+      <li class="breadcrumb-item active">store package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/store.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="store-package">
+<h1>store package<a class="headerlink" href="#store-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="store.migrations.html">store.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="store.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="store.migrations.html#module-store.migrations.0001_initial">store.migrations.0001_initial module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="store.migrations.html#store.migrations.0001_initial.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0001_initial.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0001_initial.Migration.initial"><code class="docutils literal notranslate"><span class="pre">Migration.initial</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0001_initial.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="store.migrations.html#module-store.migrations.0002_profile">store.migrations.0002_profile module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="store.migrations.html#store.migrations.0002_profile.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0002_profile.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0002_profile.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="store.migrations.html#module-store.migrations.0003_rename_category_store_rename_category_product_store">store.migrations.0003_rename_category_store_rename_category_product_store module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="store.migrations.html#store.migrations.0003_rename_category_store_rename_category_product_store.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0003_rename_category_store_rename_category_product_store.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0003_rename_category_store_rename_category_product_store.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="store.migrations.html#module-store.migrations.0004_profile_full_name_profile_user_type">store.migrations.0004_profile_full_name_profile_user_type module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="store.migrations.html#store.migrations.0004_profile_full_name_profile_user_type.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0004_profile_full_name_profile_user_type.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0004_profile_full_name_profile_user_type.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="store.migrations.html#module-store.migrations.0005_remove_profile_user_type_order_vendors_product_stock_and_more">store.migrations.0005_remove_profile_user_type_order_vendors_product_stock_and_more module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="store.migrations.html#store.migrations.0005_remove_profile_user_type_order_vendors_product_stock_and_more.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0005_remove_profile_user_type_order_vendors_product_stock_and_more.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0005_remove_profile_user_type_order_vendors_product_stock_and_more.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="store.migrations.html#module-store.migrations.0006_store_description">store.migrations.0006_store_description module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="store.migrations.html#store.migrations.0006_store_description.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0006_store_description.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0006_store_description.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="store.migrations.html#module-store.migrations.0007_remove_profile_vendor_profile_user_type">store.migrations.0007_remove_profile_vendor_profile_user_type module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="store.migrations.html#store.migrations.0007_remove_profile_vendor_profile_user_type.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0007_remove_profile_vendor_profile_user_type.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0007_remove_profile_vendor_profile_user_type.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="store.migrations.html#module-store.migrations.0008_remove_profile_user_type_store_image">store.migrations.0008_remove_profile_user_type_store_image module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="store.migrations.html#store.migrations.0008_remove_profile_user_type_store_image.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0008_remove_profile_user_type_store_image.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0008_remove_profile_user_type_store_image.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="store.migrations.html#module-store.migrations.0009_resettoken">store.migrations.0009_resettoken module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="store.migrations.html#store.migrations.0009_resettoken.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0009_resettoken.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0009_resettoken.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="store.migrations.html#module-store.migrations.0010_profile_old_cart">store.migrations.0010_profile_old_cart module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="store.migrations.html#store.migrations.0010_profile_old_cart.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0010_profile_old_cart.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0010_profile_old_cart.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="store.migrations.html#module-store.migrations.0011_remove_order_address_remove_order_customer_and_more">store.migrations.0011_remove_order_address_remove_order_customer_and_more module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="store.migrations.html#store.migrations.0011_remove_order_address_remove_order_customer_and_more.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0011_remove_order_address_remove_order_customer_and_more.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0011_remove_order_address_remove_order_customer_and_more.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="store.migrations.html#module-store.migrations.0012_profile_post_code">store.migrations.0012_profile_post_code module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="store.migrations.html#store.migrations.0012_profile_post_code.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0012_profile_post_code.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0012_profile_post_code.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="store.migrations.html#module-store.migrations.0013_profile_email">store.migrations.0013_profile_email module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="store.migrations.html#store.migrations.0013_profile_email.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0013_profile_email.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0013_profile_email.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="store.migrations.html#module-store.migrations.0014_productreviews">store.migrations.0014_productreviews module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="store.migrations.html#store.migrations.0014_productreviews.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0014_productreviews.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0014_productreviews.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="store.migrations.html#module-store.migrations.0015_rename_content_productreviews_review_and_more">store.migrations.0015_rename_content_productreviews_review_and_more module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="store.migrations.html#store.migrations.0015_rename_content_productreviews_review_and_more.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0015_rename_content_productreviews_review_and_more.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0015_rename_content_productreviews_review_and_more.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="store.migrations.html#module-store.migrations.0016_alter_productreviews_product_and_more">store.migrations.0016_alter_productreviews_product_and_more module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="store.migrations.html#store.migrations.0016_alter_productreviews_product_and_more.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0016_alter_productreviews_product_and_more.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0016_alter_productreviews_product_and_more.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="store.migrations.html#module-store.migrations.0017_productreviews_verified_alter_productreviews_rating_and_more">store.migrations.0017_productreviews_verified_alter_productreviews_rating_and_more module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="store.migrations.html#store.migrations.0017_productreviews_verified_alter_productreviews_rating_and_more.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0017_productreviews_verified_alter_productreviews_rating_and_more.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0017_productreviews_verified_alter_productreviews_rating_and_more.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="store.migrations.html#module-store.migrations.0018_rename_verified_productreviews_bought">store.migrations.0018_rename_verified_productreviews_bought module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="store.migrations.html#store.migrations.0018_rename_verified_productreviews_bought.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0018_rename_verified_productreviews_bought.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0018_rename_verified_productreviews_bought.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="store.migrations.html#module-store.migrations.0019_alter_profile_email">store.migrations.0019_alter_profile_email module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="store.migrations.html#store.migrations.0019_alter_profile_email.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0019_alter_profile_email.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0019_alter_profile_email.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="store.migrations.html#module-store.migrations.0020_alter_profile_email">store.migrations.0020_alter_profile_email module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="store.migrations.html#store.migrations.0020_alter_profile_email.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0020_alter_profile_email.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="store.migrations.html#store.migrations.0020_alter_profile_email.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="store.migrations.html#module-store.migrations">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-store.admin">
+<span id="store-admin-module"></span><h2>store.admin module<a class="headerlink" href="#module-store.admin" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="store.admin.OrderAdmin">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">store.admin.</span></span><span class="sig-name descname"><span class="pre">OrderAdmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_site</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/admin.html#OrderAdmin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.admin.OrderAdmin" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelAdmin</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.admin.OrderAdmin.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['user',</span> <span class="pre">'full_name',</span> <span class="pre">'email',</span> <span class="pre">'shipping_address',</span> <span class="pre">'amount_paid',</span> <span class="pre">'date_ordered']</span></span><a class="headerlink" href="#store.admin.OrderAdmin.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.admin.OrderAdmin.inlines">
+<span class="sig-name descname"><span class="pre">inlines</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'store.admin.OrderItemInline'&gt;]</span></span><a class="headerlink" href="#store.admin.OrderAdmin.inlines" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="store.admin.OrderAdmin.media">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#store.admin.OrderAdmin.media" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.admin.OrderAdmin.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#store.admin.OrderAdmin.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#store.models.Order" title="store.models.Order"><code class="xref py py-class docutils literal notranslate"><span class="pre">Order</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.admin.OrderAdmin.readonly_fields">
+<span class="sig-name descname"><span class="pre">readonly_fields</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['date_ordered']</span></span><a class="headerlink" href="#store.admin.OrderAdmin.readonly_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="store.admin.OrderItemInline">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">store.admin.</span></span><span class="sig-name descname"><span class="pre">OrderItemInline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_site</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/admin.html#OrderItemInline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.admin.OrderItemInline" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">StackedInline</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.admin.OrderItemInline.extra">
+<span class="sig-name descname"><span class="pre">extra</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></span><a class="headerlink" href="#store.admin.OrderItemInline.extra" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="store.admin.OrderItemInline.media">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#store.admin.OrderItemInline.media" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.admin.OrderItemInline.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#store.admin.OrderItemInline.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#store.models.OrderItem" title="store.models.OrderItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">OrderItem</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="store.admin.ProfileInLine">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">store.admin.</span></span><span class="sig-name descname"><span class="pre">ProfileInLine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_site</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/admin.html#ProfileInLine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.admin.ProfileInLine" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">StackedInline</span></code></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="store.admin.ProfileInLine.media">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#store.admin.ProfileInLine.media" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.admin.ProfileInLine.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#store.admin.ProfileInLine.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#store.models.Profile" title="store.models.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="store.admin.UserAdmin">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">store.admin.</span></span><span class="sig-name descname"><span class="pre">UserAdmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_site</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/admin.html#UserAdmin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.admin.UserAdmin" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelAdmin</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.admin.UserAdmin.field">
+<span class="sig-name descname"><span class="pre">field</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['username',</span> <span class="pre">'first_name',</span> <span class="pre">'last_name',</span> <span class="pre">'email']</span></span><a class="headerlink" href="#store.admin.UserAdmin.field" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.admin.UserAdmin.inlines">
+<span class="sig-name descname"><span class="pre">inlines</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'store.admin.ProfileInLine'&gt;]</span></span><a class="headerlink" href="#store.admin.UserAdmin.inlines" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="store.admin.UserAdmin.media">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#store.admin.UserAdmin.media" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.admin.UserAdmin.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#store.admin.UserAdmin.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-store.apps">
+<span id="store-apps-module"></span><h2>store.apps module<a class="headerlink" href="#module-store.apps" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="store.apps.StoreConfig">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">store.apps.</span></span><span class="sig-name descname"><span class="pre">StoreConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/apps.html#StoreConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.apps.StoreConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.apps.StoreConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'store'</span></span><a class="headerlink" href="#store.apps.StoreConfig.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-store.decorators">
+<span id="store-decorators-module"></span><h2>store.decorators module<a class="headerlink" href="#module-store.decorators" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="store.decorators.allowed_users">
+<span class="sig-prename descclassname"><span class="pre">store.decorators.</span></span><span class="sig-name descname"><span class="pre">allowed_users</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">allowed_roles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/decorators.html#allowed_users"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.decorators.allowed_users" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="store.decorators.unauthenticated_user">
+<span class="sig-prename descclassname"><span class="pre">store.decorators.</span></span><span class="sig-name descname"><span class="pre">unauthenticated_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">view_func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/decorators.html#unauthenticated_user"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.decorators.unauthenticated_user" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="store.decorators.vendor_only">
+<span class="sig-prename descclassname"><span class="pre">store.decorators.</span></span><span class="sig-name descname"><span class="pre">vendor_only</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">view_func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/decorators.html#vendor_only"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.decorators.vendor_only" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-store.forms">
+<span id="store-forms-module"></span><h2>store.forms module<a class="headerlink" href="#module-store.forms" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="store.forms.ChangePassword">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">store.forms.</span></span><span class="sig-name descname"><span class="pre">ChangePassword</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/forms.html#ChangePassword"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.forms.ChangePassword" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SetPasswordForm</span></code></p>
+<p>form for changing password</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="store.forms.ChangePassword.Meta">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/store/forms.html#ChangePassword.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.forms.ChangePassword.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.ChangePassword.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['new_password1',</span> <span class="pre">'new_password2']</span></span><a class="headerlink" href="#store.forms.ChangePassword.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.ChangePassword.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#store.forms.ChangePassword.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.ChangePassword.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'new_password1':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'new_password2':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></span><a class="headerlink" href="#store.forms.ChangePassword.base_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.ChangePassword.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'new_password1':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'new_password2':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></span><a class="headerlink" href="#store.forms.ChangePassword.declared_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="store.forms.ChangePassword.media">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#store.forms.ChangePassword.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="store.forms.ProductForm">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">store.forms.</span></span><span class="sig-name descname"><span class="pre">ProductForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/forms.html#ProductForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.forms.ProductForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<p>form for adding or editing products</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="store.forms.ProductForm.Meta">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/store/forms.html#ProductForm.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.forms.ProductForm.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.ProductForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['name',</span> <span class="pre">'price',</span> <span class="pre">'stock',</span> <span class="pre">'image',</span> <span class="pre">'store']</span></span><a class="headerlink" href="#store.forms.ProductForm.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.ProductForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#store.forms.ProductForm.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#store.models.Product" title="store.models.Product"><code class="xref py py-class docutils literal notranslate"><span class="pre">Product</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.ProductForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'image':</span> <span class="pre">&lt;django.forms.fields.ImageField</span> <span class="pre">object&gt;,</span> <span class="pre">'name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'price':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'stock':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'store':</span> <span class="pre">&lt;django.forms.models.ModelChoiceField</span> <span class="pre">object&gt;}</span></span><a class="headerlink" href="#store.forms.ProductForm.base_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.ProductForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'image':</span> <span class="pre">&lt;django.forms.fields.ImageField</span> <span class="pre">object&gt;,</span> <span class="pre">'name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'price':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'stock':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'store':</span> <span class="pre">&lt;django.forms.models.ModelChoiceField</span> <span class="pre">object&gt;}</span></span><a class="headerlink" href="#store.forms.ProductForm.declared_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="store.forms.ProductForm.media">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#store.forms.ProductForm.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="store.forms.ReviewForm">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">store.forms.</span></span><span class="sig-name descname"><span class="pre">ReviewForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/forms.html#ReviewForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.forms.ReviewForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="store.forms.ReviewForm.Meta">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/store/forms.html#ReviewForm.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.forms.ReviewForm.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.ReviewForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['review',</span> <span class="pre">'rating']</span></span><a class="headerlink" href="#store.forms.ReviewForm.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.ReviewForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#store.forms.ReviewForm.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#store.models.ProductReviews" title="store.models.ProductReviews"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProductReviews</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.ReviewForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'rating':</span> <span class="pre">&lt;django.forms.fields.TypedChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'review':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></span><a class="headerlink" href="#store.forms.ReviewForm.base_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.ReviewForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'review':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></span><a class="headerlink" href="#store.forms.ReviewForm.declared_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="store.forms.ReviewForm.media">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#store.forms.ReviewForm.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="store.forms.ShippingForm">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">store.forms.</span></span><span class="sig-name descname"><span class="pre">ShippingForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/forms.html#ShippingForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.forms.ShippingForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="store.forms.ShippingForm.Meta">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/store/forms.html#ShippingForm.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.forms.ShippingForm.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.ShippingForm.Meta.exclude">
+<span class="sig-name descname"><span class="pre">exclude</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['user']</span></span><a class="headerlink" href="#store.forms.ShippingForm.Meta.exclude" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.ShippingForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['full_name',</span> <span class="pre">'email',</span> <span class="pre">'address1',</span> <span class="pre">'address2',</span> <span class="pre">'city',</span> <span class="pre">'country',</span> <span class="pre">'post_code']</span></span><a class="headerlink" href="#store.forms.ShippingForm.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.ShippingForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#store.forms.ShippingForm.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#store.models.ShippingAddress" title="store.models.ShippingAddress"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShippingAddress</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.ShippingForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'address1':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'address2':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'city':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'country':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'email':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'full_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'post_code':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></span><a class="headerlink" href="#store.forms.ShippingForm.base_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.ShippingForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'address1':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'address2':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'city':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'country':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'email':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'full_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'post_code':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></span><a class="headerlink" href="#store.forms.ShippingForm.declared_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="store.forms.ShippingForm.media">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#store.forms.ShippingForm.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="store.forms.SignUpForm">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">store.forms.</span></span><span class="sig-name descname"><span class="pre">SignUpForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/forms.html#SignUpForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.forms.SignUpForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">UserCreationForm</span></code></p>
+<p>form for user registration</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="store.forms.SignUpForm.Meta">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/store/forms.html#SignUpForm.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.forms.SignUpForm.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.SignUpForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('username',</span> <span class="pre">'first_name',</span> <span class="pre">'last_name',</span> <span class="pre">'email',</span> <span class="pre">'password1',</span> <span class="pre">'password2',</span> <span class="pre">'role')</span></span><a class="headerlink" href="#store.forms.SignUpForm.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.SignUpForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#store.forms.SignUpForm.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.SignUpForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'email':</span> <span class="pre">&lt;django.forms.fields.EmailField</span> <span class="pre">object&gt;,</span> <span class="pre">'first_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'last_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password1':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password2':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'role':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'username':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></span><a class="headerlink" href="#store.forms.SignUpForm.base_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="store.forms.SignUpForm.check_email">
+<span class="sig-name descname"><span class="pre">check_email</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/forms.html#SignUpForm.check_email"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.forms.SignUpForm.check_email" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.SignUpForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'email':</span> <span class="pre">&lt;django.forms.fields.EmailField</span> <span class="pre">object&gt;,</span> <span class="pre">'first_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'last_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password1':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password2':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'role':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;}</span></span><a class="headerlink" href="#store.forms.SignUpForm.declared_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="store.forms.SignUpForm.media">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#store.forms.SignUpForm.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="store.forms.StoreForm">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">store.forms.</span></span><span class="sig-name descname"><span class="pre">StoreForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/forms.html#StoreForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.forms.StoreForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<p>form for adding stores</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="store.forms.StoreForm.Meta">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/store/forms.html#StoreForm.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.forms.StoreForm.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.StoreForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['name',</span> <span class="pre">'description',</span> <span class="pre">'image']</span></span><a class="headerlink" href="#store.forms.StoreForm.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.StoreForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#store.forms.StoreForm.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#store.models.Store" title="store.models.Store"><code class="xref py py-class docutils literal notranslate"><span class="pre">Store</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.StoreForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'description':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'image':</span> <span class="pre">&lt;django.forms.fields.ImageField</span> <span class="pre">object&gt;,</span> <span class="pre">'name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></span><a class="headerlink" href="#store.forms.StoreForm.base_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.StoreForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'description':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'image':</span> <span class="pre">&lt;django.forms.fields.ImageField</span> <span class="pre">object&gt;,</span> <span class="pre">'name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></span><a class="headerlink" href="#store.forms.StoreForm.declared_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="store.forms.StoreForm.media">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#store.forms.StoreForm.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="store.forms.UpdateUserForm">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">store.forms.</span></span><span class="sig-name descname"><span class="pre">UpdateUserForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/forms.html#UpdateUserForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.forms.UpdateUserForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">UserChangeForm</span></code></p>
+<p>form for updating user info</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="store.forms.UpdateUserForm.Meta">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/store/forms.html#UpdateUserForm.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.forms.UpdateUserForm.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.UpdateUserForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('username',</span> <span class="pre">'first_name',</span> <span class="pre">'last_name',</span> <span class="pre">'email')</span></span><a class="headerlink" href="#store.forms.UpdateUserForm.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.UpdateUserForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#store.forms.UpdateUserForm.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.UpdateUserForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'email':</span> <span class="pre">&lt;django.forms.fields.EmailField</span> <span class="pre">object&gt;,</span> <span class="pre">'first_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'last_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'username':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></span><a class="headerlink" href="#store.forms.UpdateUserForm.base_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="store.forms.UpdateUserForm.clean_email">
+<span class="sig-name descname"><span class="pre">clean_email</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/forms.html#UpdateUserForm.clean_email"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.forms.UpdateUserForm.clean_email" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.UpdateUserForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'email':</span> <span class="pre">&lt;django.forms.fields.EmailField</span> <span class="pre">object&gt;,</span> <span class="pre">'first_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'last_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></span><a class="headerlink" href="#store.forms.UpdateUserForm.declared_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="store.forms.UpdateUserForm.media">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#store.forms.UpdateUserForm.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.UpdateUserForm.password">
+<span class="sig-name descname"><span class="pre">password</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#store.forms.UpdateUserForm.password" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="store.forms.UserInfoForm">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">store.forms.</span></span><span class="sig-name descname"><span class="pre">UserInfoForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/forms.html#UserInfoForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.forms.UserInfoForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<p>form for user profile information</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="store.forms.UserInfoForm.Meta">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/store/forms.html#UserInfoForm.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.forms.UserInfoForm.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.UserInfoForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['phone',</span> <span class="pre">'full_name',</span> <span class="pre">'email',</span> <span class="pre">'address1',</span> <span class="pre">'address2',</span> <span class="pre">'city',</span> <span class="pre">'country',</span> <span class="pre">'post_code']</span></span><a class="headerlink" href="#store.forms.UserInfoForm.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.UserInfoForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#store.forms.UserInfoForm.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#store.models.Profile" title="store.models.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.UserInfoForm.USER_TYPES">
+<span class="sig-name descname"><span class="pre">USER_TYPES</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[('vendor',</span> <span class="pre">'vendor'),</span> <span class="pre">('buyer',</span> <span class="pre">'buyer')]</span></span><a class="headerlink" href="#store.forms.UserInfoForm.USER_TYPES" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.UserInfoForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'address1':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'address2':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'city':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'country':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'email':</span> <span class="pre">&lt;django.forms.fields.EmailField</span> <span class="pre">object&gt;,</span> <span class="pre">'full_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'phone':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'post_code':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></span><a class="headerlink" href="#store.forms.UserInfoForm.base_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.forms.UserInfoForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'address1':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'address2':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'city':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'country':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'email':</span> <span class="pre">&lt;django.forms.fields.EmailField</span> <span class="pre">object&gt;,</span> <span class="pre">'full_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'phone':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'post_code':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></span><a class="headerlink" href="#store.forms.UserInfoForm.declared_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="store.forms.UserInfoForm.media">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#store.forms.UserInfoForm.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-store.models">
+<span id="store-models-module"></span><h2>store.models module<a class="headerlink" href="#module-store.models" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="store.models.Customer">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">store.models.</span></span><span class="sig-name descname"><span class="pre">Customer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phone</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/models.html#Customer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.models.Customer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="store.models.Customer.DoesNotExist">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#store.models.Customer.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="store.models.Customer.MultipleObjectsReturned">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#store.models.Customer.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="store.models.Customer.NotUpdated">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">NotUpdated</span></span><a class="headerlink" href="#store.models.Customer.NotUpdated" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectNotUpdated</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DatabaseError</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Customer.email">
+<span class="sig-name descname"><span class="pre">email</span></span><a class="headerlink" href="#store.models.Customer.email" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Customer.first_name">
+<span class="sig-name descname"><span class="pre">first_name</span></span><a class="headerlink" href="#store.models.Customer.first_name" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Customer.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#store.models.Customer.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Customer.last_name">
+<span class="sig-name descname"><span class="pre">last_name</span></span><a class="headerlink" href="#store.models.Customer.last_name" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Customer.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#store.models.Customer.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Customer.password">
+<span class="sig-name descname"><span class="pre">password</span></span><a class="headerlink" href="#store.models.Customer.password" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Customer.phone">
+<span class="sig-name descname"><span class="pre">phone</span></span><a class="headerlink" href="#store.models.Customer.phone" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="store.models.Order">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">store.models.</span></span><span class="sig-name descname"><span class="pre">Order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shipping_address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_paid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date_ordered</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/models.html#Order"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.models.Order" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="store.models.Order.DoesNotExist">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#store.models.Order.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="store.models.Order.MultipleObjectsReturned">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#store.models.Order.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="store.models.Order.NotUpdated">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">NotUpdated</span></span><a class="headerlink" href="#store.models.Order.NotUpdated" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectNotUpdated</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DatabaseError</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Order.amount_paid">
+<span class="sig-name descname"><span class="pre">amount_paid</span></span><a class="headerlink" href="#store.models.Order.amount_paid" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Order.date_ordered">
+<span class="sig-name descname"><span class="pre">date_ordered</span></span><a class="headerlink" href="#store.models.Order.date_ordered" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Order.email">
+<span class="sig-name descname"><span class="pre">email</span></span><a class="headerlink" href="#store.models.Order.email" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Order.full_name">
+<span class="sig-name descname"><span class="pre">full_name</span></span><a class="headerlink" href="#store.models.Order.full_name" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Order.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#store.models.Order.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Order.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#store.models.Order.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Order.orderitem_set">
+<span class="sig-name descname"><span class="pre">orderitem_set</span></span><a class="headerlink" href="#store.models.Order.orderitem_set" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">'children'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_reverse_many_to_one_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Order.shipping_address">
+<span class="sig-name descname"><span class="pre">shipping_address</span></span><a class="headerlink" href="#store.models.Order.shipping_address" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Order.user">
+<span class="sig-name descname"><span class="pre">user</span></span><a class="headerlink" href="#store.models.Order.user" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">'children'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Order.user_id">
+<span class="sig-name descname"><span class="pre">user_id</span></span><a class="headerlink" href="#store.models.Order.user_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="store.models.OrderItem">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">store.models.</span></span><span class="sig-name descname"><span class="pre">OrderItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">product</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">price</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/models.html#OrderItem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.models.OrderItem" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="store.models.OrderItem.DoesNotExist">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#store.models.OrderItem.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="store.models.OrderItem.MultipleObjectsReturned">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#store.models.OrderItem.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="store.models.OrderItem.NotUpdated">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">NotUpdated</span></span><a class="headerlink" href="#store.models.OrderItem.NotUpdated" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectNotUpdated</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DatabaseError</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.OrderItem.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#store.models.OrderItem.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.OrderItem.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#store.models.OrderItem.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.OrderItem.order">
+<span class="sig-name descname"><span class="pre">order</span></span><a class="headerlink" href="#store.models.OrderItem.order" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">'children'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.OrderItem.order_id">
+<span class="sig-name descname"><span class="pre">order_id</span></span><a class="headerlink" href="#store.models.OrderItem.order_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.OrderItem.price">
+<span class="sig-name descname"><span class="pre">price</span></span><a class="headerlink" href="#store.models.OrderItem.price" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.OrderItem.product">
+<span class="sig-name descname"><span class="pre">product</span></span><a class="headerlink" href="#store.models.OrderItem.product" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">'children'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.OrderItem.product_id">
+<span class="sig-name descname"><span class="pre">product_id</span></span><a class="headerlink" href="#store.models.OrderItem.product_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.OrderItem.quantity">
+<span class="sig-name descname"><span class="pre">quantity</span></span><a class="headerlink" href="#store.models.OrderItem.quantity" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.OrderItem.user">
+<span class="sig-name descname"><span class="pre">user</span></span><a class="headerlink" href="#store.models.OrderItem.user" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">'children'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.OrderItem.user_id">
+<span class="sig-name descname"><span class="pre">user_id</span></span><a class="headerlink" href="#store.models.OrderItem.user_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="store.models.Product">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">store.models.</span></span><span class="sig-name descname"><span class="pre">Product</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/models.html#Product"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.models.Product" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>product model for stores</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="store.models.Product.DoesNotExist">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#store.models.Product.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="store.models.Product.MultipleObjectsReturned">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#store.models.Product.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="store.models.Product.NotUpdated">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">NotUpdated</span></span><a class="headerlink" href="#store.models.Product.NotUpdated" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectNotUpdated</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DatabaseError</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Product.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#store.models.Product.description" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Product.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#store.models.Product.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Product.image">
+<span class="sig-name descname"><span class="pre">image</span></span><a class="headerlink" href="#store.models.Product.image" title="Link to this definition"></a></dt>
+<dd><p>Just like the FileDescriptor, but for ImageFields. The only difference is
+assigning the width/height to the width_field/height_field, if appropriate.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="store.models.Product.meta">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">meta</span></span><a class="reference internal" href="_modules/store/models.html#Product.meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.models.Product.meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Product.meta.permissions">
+<span class="sig-name descname"><span class="pre">permissions</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[('add_products',</span> <span class="pre">'can</span> <span class="pre">add</span> <span class="pre">products')]</span></span><a class="headerlink" href="#store.models.Product.meta.permissions" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Product.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#store.models.Product.name" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Product.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#store.models.Product.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Product.orderitem_set">
+<span class="sig-name descname"><span class="pre">orderitem_set</span></span><a class="headerlink" href="#store.models.Product.orderitem_set" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">'children'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_reverse_many_to_one_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Product.price">
+<span class="sig-name descname"><span class="pre">price</span></span><a class="headerlink" href="#store.models.Product.price" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Product.reviews">
+<span class="sig-name descname"><span class="pre">reviews</span></span><a class="headerlink" href="#store.models.Product.reviews" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">'children'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_reverse_many_to_one_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Product.stock">
+<span class="sig-name descname"><span class="pre">stock</span></span><a class="headerlink" href="#store.models.Product.stock" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="store.models.Product.stock_range">
+<span class="sig-name descname"><span class="pre">stock_range</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/models.html#Product.stock_range"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.models.Product.stock_range" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Product.store">
+<span class="sig-name descname"><span class="pre">store</span></span><a class="headerlink" href="#store.models.Product.store" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">'children'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Product.store_id">
+<span class="sig-name descname"><span class="pre">store_id</span></span><a class="headerlink" href="#store.models.Product.store_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="store.models.ProductReviews">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">store.models.</span></span><span class="sig-name descname"><span class="pre">ProductReviews</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">product</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">review</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rating</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date_added</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bought</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/models.html#ProductReviews"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.models.ProductReviews" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="store.models.ProductReviews.DoesNotExist">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#store.models.ProductReviews.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="store.models.ProductReviews.MultipleObjectsReturned">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#store.models.ProductReviews.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="store.models.ProductReviews.NotUpdated">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">NotUpdated</span></span><a class="headerlink" href="#store.models.ProductReviews.NotUpdated" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectNotUpdated</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DatabaseError</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.ProductReviews.bought">
+<span class="sig-name descname"><span class="pre">bought</span></span><a class="headerlink" href="#store.models.ProductReviews.bought" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="store.models.ProductReviews.clean">
+<span class="sig-name descname"><span class="pre">clean</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/models.html#ProductReviews.clean"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.models.ProductReviews.clean" title="Link to this definition"></a></dt>
+<dd><p>Hook for doing any extra model-wide validation after clean() has been
+called on every field by self.clean_fields. Any ValidationError raised
+by this method will not be associated with a particular field; it will
+have a special-case association with the field defined by
+NON_FIELD_ERRORS.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.ProductReviews.date_added">
+<span class="sig-name descname"><span class="pre">date_added</span></span><a class="headerlink" href="#store.models.ProductReviews.date_added" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="store.models.ProductReviews.get_next_by_date_added">
+<span class="sig-name descname"><span class="pre">get_next_by_date_added</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">date_added&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#store.models.ProductReviews.get_next_by_date_added" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="store.models.ProductReviews.get_previous_by_date_added">
+<span class="sig-name descname"><span class="pre">get_previous_by_date_added</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">date_added&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#store.models.ProductReviews.get_previous_by_date_added" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="store.models.ProductReviews.get_rating">
+<span class="sig-name descname"><span class="pre">get_rating</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/models.html#ProductReviews.get_rating"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.models.ProductReviews.get_rating" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="store.models.ProductReviews.get_rating_display">
+<span class="sig-name descname"><span class="pre">get_rating_display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;django.db.models.fields.IntegerField:</span> <span class="pre">rating&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#store.models.ProductReviews.get_rating_display" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.ProductReviews.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#store.models.ProductReviews.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.ProductReviews.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#store.models.ProductReviews.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.ProductReviews.product">
+<span class="sig-name descname"><span class="pre">product</span></span><a class="headerlink" href="#store.models.ProductReviews.product" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">'children'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.ProductReviews.product_id">
+<span class="sig-name descname"><span class="pre">product_id</span></span><a class="headerlink" href="#store.models.ProductReviews.product_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.ProductReviews.rating">
+<span class="sig-name descname"><span class="pre">rating</span></span><a class="headerlink" href="#store.models.ProductReviews.rating" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.ProductReviews.review">
+<span class="sig-name descname"><span class="pre">review</span></span><a class="headerlink" href="#store.models.ProductReviews.review" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.ProductReviews.user">
+<span class="sig-name descname"><span class="pre">user</span></span><a class="headerlink" href="#store.models.ProductReviews.user" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">'children'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.ProductReviews.user_id">
+<span class="sig-name descname"><span class="pre">user_id</span></span><a class="headerlink" href="#store.models.ProductReviews.user_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="store.models.Profile">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">store.models.</span></span><span class="sig-name descname"><span class="pre">Profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/models.html#Profile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.models.Profile" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>profile model for user</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="store.models.Profile.DoesNotExist">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#store.models.Profile.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="store.models.Profile.MultipleObjectsReturned">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#store.models.Profile.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="store.models.Profile.NotUpdated">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">NotUpdated</span></span><a class="headerlink" href="#store.models.Profile.NotUpdated" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectNotUpdated</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DatabaseError</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Profile.USER_TYPE">
+<span class="sig-name descname"><span class="pre">USER_TYPE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[('vendor',</span> <span class="pre">'vendor'),</span> <span class="pre">('buyer',</span> <span class="pre">'buyer')]</span></span><a class="headerlink" href="#store.models.Profile.USER_TYPE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Profile.address1">
+<span class="sig-name descname"><span class="pre">address1</span></span><a class="headerlink" href="#store.models.Profile.address1" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Profile.address2">
+<span class="sig-name descname"><span class="pre">address2</span></span><a class="headerlink" href="#store.models.Profile.address2" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Profile.city">
+<span class="sig-name descname"><span class="pre">city</span></span><a class="headerlink" href="#store.models.Profile.city" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Profile.country">
+<span class="sig-name descname"><span class="pre">country</span></span><a class="headerlink" href="#store.models.Profile.country" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Profile.email">
+<span class="sig-name descname"><span class="pre">email</span></span><a class="headerlink" href="#store.models.Profile.email" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Profile.full_name">
+<span class="sig-name descname"><span class="pre">full_name</span></span><a class="headerlink" href="#store.models.Profile.full_name" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Profile.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#store.models.Profile.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Profile.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#store.models.Profile.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Profile.old_cart">
+<span class="sig-name descname"><span class="pre">old_cart</span></span><a class="headerlink" href="#store.models.Profile.old_cart" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Profile.phone">
+<span class="sig-name descname"><span class="pre">phone</span></span><a class="headerlink" href="#store.models.Profile.phone" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Profile.post_code">
+<span class="sig-name descname"><span class="pre">post_code</span></span><a class="headerlink" href="#store.models.Profile.post_code" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Profile.user">
+<span class="sig-name descname"><span class="pre">user</span></span><a class="headerlink" href="#store.models.Profile.user" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a one-to-one
+relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">'restaurant'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Restaurant.place</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Profile.user_id">
+<span class="sig-name descname"><span class="pre">user_id</span></span><a class="headerlink" href="#store.models.Profile.user_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="store.models.ResetToken">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">store.models.</span></span><span class="sig-name descname"><span class="pre">ResetToken</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expiry_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">used</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/models.html#ResetToken"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.models.ResetToken" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="store.models.ResetToken.DoesNotExist">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#store.models.ResetToken.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="store.models.ResetToken.MultipleObjectsReturned">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#store.models.ResetToken.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="store.models.ResetToken.NotUpdated">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">NotUpdated</span></span><a class="headerlink" href="#store.models.ResetToken.NotUpdated" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectNotUpdated</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DatabaseError</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.ResetToken.expiry_date">
+<span class="sig-name descname"><span class="pre">expiry_date</span></span><a class="headerlink" href="#store.models.ResetToken.expiry_date" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="store.models.ResetToken.get_next_by_expiry_date">
+<span class="sig-name descname"><span class="pre">get_next_by_expiry_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">expiry_date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#store.models.ResetToken.get_next_by_expiry_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="store.models.ResetToken.get_previous_by_expiry_date">
+<span class="sig-name descname"><span class="pre">get_previous_by_expiry_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">expiry_date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#store.models.ResetToken.get_previous_by_expiry_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.ResetToken.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#store.models.ResetToken.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.ResetToken.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#store.models.ResetToken.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.ResetToken.token">
+<span class="sig-name descname"><span class="pre">token</span></span><a class="headerlink" href="#store.models.ResetToken.token" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.ResetToken.used">
+<span class="sig-name descname"><span class="pre">used</span></span><a class="headerlink" href="#store.models.ResetToken.used" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.ResetToken.user">
+<span class="sig-name descname"><span class="pre">user</span></span><a class="headerlink" href="#store.models.ResetToken.user" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">'children'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.ResetToken.user_id">
+<span class="sig-name descname"><span class="pre">user_id</span></span><a class="headerlink" href="#store.models.ResetToken.user_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="store.models.ShippingAddress">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">store.models.</span></span><span class="sig-name descname"><span class="pre">ShippingAddress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">city</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post_code</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/models.html#ShippingAddress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.models.ShippingAddress" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="store.models.ShippingAddress.DoesNotExist">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#store.models.ShippingAddress.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="store.models.ShippingAddress.MultipleObjectsReturned">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#store.models.ShippingAddress.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="store.models.ShippingAddress.NotUpdated">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">NotUpdated</span></span><a class="headerlink" href="#store.models.ShippingAddress.NotUpdated" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectNotUpdated</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DatabaseError</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.ShippingAddress.address1">
+<span class="sig-name descname"><span class="pre">address1</span></span><a class="headerlink" href="#store.models.ShippingAddress.address1" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.ShippingAddress.address2">
+<span class="sig-name descname"><span class="pre">address2</span></span><a class="headerlink" href="#store.models.ShippingAddress.address2" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.ShippingAddress.city">
+<span class="sig-name descname"><span class="pre">city</span></span><a class="headerlink" href="#store.models.ShippingAddress.city" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.ShippingAddress.country">
+<span class="sig-name descname"><span class="pre">country</span></span><a class="headerlink" href="#store.models.ShippingAddress.country" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.ShippingAddress.email">
+<span class="sig-name descname"><span class="pre">email</span></span><a class="headerlink" href="#store.models.ShippingAddress.email" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.ShippingAddress.full_name">
+<span class="sig-name descname"><span class="pre">full_name</span></span><a class="headerlink" href="#store.models.ShippingAddress.full_name" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.ShippingAddress.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#store.models.ShippingAddress.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.ShippingAddress.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#store.models.ShippingAddress.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.ShippingAddress.post_code">
+<span class="sig-name descname"><span class="pre">post_code</span></span><a class="headerlink" href="#store.models.ShippingAddress.post_code" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.ShippingAddress.user">
+<span class="sig-name descname"><span class="pre">user</span></span><a class="headerlink" href="#store.models.ShippingAddress.user" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">'children'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.ShippingAddress.user_id">
+<span class="sig-name descname"><span class="pre">user_id</span></span><a class="headerlink" href="#store.models.ShippingAddress.user_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="store.models.Store">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">store.models.</span></span><span class="sig-name descname"><span class="pre">Store</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/models.html#Store"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.models.Store" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>store model for vendors</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="store.models.Store.DoesNotExist">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#store.models.Store.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="store.models.Store.MultipleObjectsReturned">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#store.models.Store.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="store.models.Store.NotUpdated">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">NotUpdated</span></span><a class="headerlink" href="#store.models.Store.NotUpdated" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectNotUpdated</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DatabaseError</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Store.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#store.models.Store.description" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Store.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#store.models.Store.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Store.image">
+<span class="sig-name descname"><span class="pre">image</span></span><a class="headerlink" href="#store.models.Store.image" title="Link to this definition"></a></dt>
+<dd><p>Just like the FileDescriptor, but for ImageFields. The only difference is
+assigning the width/height to the width_field/height_field, if appropriate.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="store.models.Store.meta">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">meta</span></span><a class="reference internal" href="_modules/store/models.html#Store.meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.models.Store.meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Store.meta.permissions">
+<span class="sig-name descname"><span class="pre">permissions</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[('add_stores',</span> <span class="pre">'can</span> <span class="pre">add</span> <span class="pre">stores')]</span></span><a class="headerlink" href="#store.models.Store.meta.permissions" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Store.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#store.models.Store.name" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Store.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></span><a class="headerlink" href="#store.models.Store.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="store.models.Store.product_set">
+<span class="sig-name descname"><span class="pre">product_set</span></span><a class="headerlink" href="#store.models.Store.product_set" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">'children'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_reverse_many_to_one_manager()</span></code> defined below.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-store.tests">
+<span id="store-tests-module"></span><h2>store.tests module<a class="headerlink" href="#module-store.tests" title="Link to this heading"></a></h2>
+</section>
+<section id="module-store.urls">
+<span id="store-urls-module"></span><h2>store.urls module<a class="headerlink" href="#module-store.urls" title="Link to this heading"></a></h2>
+</section>
+<section id="module-store.utils">
+<span id="store-utils-module"></span><h2>store.utils module<a class="headerlink" href="#module-store.utils" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="store.utils.build_email">
+<span class="sig-prename descclassname"><span class="pre">store.utils.</span></span><span class="sig-name descname"><span class="pre">build_email</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/utils.html#build_email"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.utils.build_email" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="store.utils.generate_reset_url">
+<span class="sig-prename descclassname"><span class="pre">store.utils.</span></span><span class="sig-name descname"><span class="pre">generate_reset_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/utils.html#generate_reset_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.utils.generate_reset_url" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-store.views">
+<span id="store-views-module"></span><h2>store.views module<a class="headerlink" href="#module-store.views" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="store.views.about">
+<span class="sig-prename descclassname"><span class="pre">store.views.</span></span><span class="sig-name descname"><span class="pre">about</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/views.html#about"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.views.about" title="Link to this definition"></a></dt>
+<dd><p>goes to about page</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="store.views.add_review">
+<span class="sig-prename descclassname"><span class="pre">store.views.</span></span><span class="sig-name descname"><span class="pre">add_review</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/views.html#add_review"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.views.add_review" title="Link to this definition"></a></dt>
+<dd><p>adds a review to a product</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="store.views.add_store">
+<span class="sig-prename descclassname"><span class="pre">store.views.</span></span><span class="sig-name descname"><span class="pre">add_store</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/views.html#add_store"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.views.add_store" title="Link to this definition"></a></dt>
+<dd><p>adds a store</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="store.views.become_buyer">
+<span class="sig-prename descclassname"><span class="pre">store.views.</span></span><span class="sig-name descname"><span class="pre">become_buyer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/views.html#become_buyer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.views.become_buyer" title="Link to this definition"></a></dt>
+<dd><p>allows user to become a buyer</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="store.views.home">
+<span class="sig-prename descclassname"><span class="pre">store.views.</span></span><span class="sig-name descname"><span class="pre">home</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/views.html#home"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.views.home" title="Link to this definition"></a></dt>
+<dd><p>goes to home page</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="store.views.logout_user">
+<span class="sig-prename descclassname"><span class="pre">store.views.</span></span><span class="sig-name descname"><span class="pre">logout_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/views.html#logout_user"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.views.logout_user" title="Link to this definition"></a></dt>
+<dd><p>logs out user</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="store.views.product">
+<span class="sig-prename descclassname"><span class="pre">store.views.</span></span><span class="sig-name descname"><span class="pre">product</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pk</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/views.html#product"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.views.product" title="Link to this definition"></a></dt>
+<dd><p>goes to specific product page</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="store.views.register_vendor">
+<span class="sig-prename descclassname"><span class="pre">store.views.</span></span><span class="sig-name descname"><span class="pre">register_vendor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/views.html#register_vendor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.views.register_vendor" title="Link to this definition"></a></dt>
+<dd><p>registers a new user</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="store.views.store">
+<span class="sig-prename descclassname"><span class="pre">store.views.</span></span><span class="sig-name descname"><span class="pre">store</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pk</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/views.html#store"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.views.store" title="Link to this definition"></a></dt>
+<dd><p>goes to specific store page</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="store.views.store_summary">
+<span class="sig-prename descclassname"><span class="pre">store.views.</span></span><span class="sig-name descname"><span class="pre">store_summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/views.html#store_summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.views.store_summary" title="Link to this definition"></a></dt>
+<dd><p>goes to store summary page</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="store.views.update_info">
+<span class="sig-prename descclassname"><span class="pre">store.views.</span></span><span class="sig-name descname"><span class="pre">update_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/views.html#update_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.views.update_info" title="Link to this definition"></a></dt>
+<dd><p>updates user info</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="store.views.update_password">
+<span class="sig-prename descclassname"><span class="pre">store.views.</span></span><span class="sig-name descname"><span class="pre">update_password</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/views.html#update_password"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.views.update_password" title="Link to this definition"></a></dt>
+<dd><p>updates user password</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="store.views.update_user">
+<span class="sig-prename descclassname"><span class="pre">store.views.</span></span><span class="sig-name descname"><span class="pre">update_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/store/views.html#update_user"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#store.views.update_user" title="Link to this definition"></a></dt>
+<dd><p>updates user info</p>
+</dd></dl>
+
+</section>
+<section id="module-store">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-store" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="store" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="store.migrations.html" class="btn btn-neutral float-right" title="store.migrations package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, jayden.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
