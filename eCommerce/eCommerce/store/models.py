@@ -22,7 +22,18 @@ class Customer(models.Model):
 
 
 class Profile(models.Model):
-    '''profile model for user'''
+    '''profile model for user
+    attributes:
+    user(one to one field): the user of the profile
+    full_name(charfield): the full name of the user
+    email(emailfield): the users email address
+    address(charfield): the addresss of the user
+    address(charfield): the addresss of the user
+    city(charfield): the city of th user
+    country(charfield): the country of the user
+    post_code(charfield): the post code of the user
+    old_cart(charfield): the items left in the cart
+        '''
     USER_TYPE = [
     ('vendor', 'vendor'),
     ('buyer', 'buyer')
