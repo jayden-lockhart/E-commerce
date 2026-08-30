@@ -1,0 +1,30 @@
+{% extends 'store/base.html' %}
+{% block content %}
+     <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Edit Store</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Please enter the updated details of your store.</p>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <div class="row">
+                <center>
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <form method="POST" action="" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+                        {{ form.as_p }}
+                        
+                        <br>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        
+                    </form>
+                    <br>
+                </div>
+                </center>
+            </div>
+        </div>
+
+{% endblock %}

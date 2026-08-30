@@ -1,0 +1,61 @@
+{% extends 'store/base.html' %}
+{% block content %}
+
+        
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Checkout</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Review your order</p>
+                </div>
+            </div>
+        </header>
+        <div class="container ">
+            <div class="row justify-content-center">
+                
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Order summary</h2>
+
+                        </div>
+                        <div class="card-body">
+                            {% for product in cart_products %}
+                                {{ product.name }}:
+                                {{ poduct.price }}
+                                <br>
+                                <small>Quantity:
+                                {% for key, value in quantities.items %}
+                        {% if key == product.id|slugify %}
+                            {{ value }}
+                        {% endif %}
+                    {% endfor %} </small>
+                            {% endfor %}
+                            <br>
+                         <br>
+                    <strong>Total: £{{ total_price }} </strong>
+                    <br>    
+                    <a href="{% url 'cart_summary' %}" class="btn btn-sm btn-outline-secondary">Update Items</a>
+                       </div>
+
+                    </div>
+                    <br>
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Shipping info</h2>
+                            <div class="card-body">
+                                <form method="POST" action="{% url 'process_order' %}">
+                                    {% csrf_token %}
+                                {{ shipping_form.as_p}}
+                                
+                            </div>
+
+                    <button type="submit" class="btn btn-secondary"> Order</button>                    
+                    </form>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
+        
