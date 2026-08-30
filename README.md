@@ -15,6 +15,7 @@ This is a Django web application project that includes two main apps:
 - [Usage](#usage)
 - [Password Reset Testing](#password-reset-testing)
 - [Troubleshooting](#troubleshooting)
+- [Docker setup](#docker-setup)
 - [Project Structure](#project-structure)
 
 ---
@@ -189,8 +190,7 @@ If you want to test password reset functionality without sending real emails:
   During development, Django serves static files automatically. For production, you need to configure static files properly.
 
 ---
-Set up Docker
-
+## Docker setup
 1. Create a file called “Dockerfile” in the root directory of your project. This file 
 should not have an extension). This file defines the environment your app will run 
 in. It tells Docker which base image to use, sets environment variables, installs 
